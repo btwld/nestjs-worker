@@ -15,6 +15,10 @@ function getImportESM() {
   return importESMCached;
 }
 
+/**
+ * Worker runtime that handles execution of worker methods in separate threads.
+ * Provides clean, production-ready execution without debug logging.
+ */
 class WorkerRuntime {
   private workerInstance: unknown;
   private readonly workerId: string;
