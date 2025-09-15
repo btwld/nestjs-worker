@@ -1,4 +1,4 @@
-import type { Type } from '@nestjs/common';
+import type { Type } from "@nestjs/common";
 
 export interface WorkerModuleOptions {
   /**
@@ -81,7 +81,7 @@ export interface WorkerSpecificConfig {
   /**
    * The worker class
    */
-  workerClass: Type<any>;
+  workerClass: Type<unknown>;
 
   /**
    * Worker-specific options that override global defaults
@@ -101,12 +101,14 @@ export interface WorkerModuleAsyncOptions {
   /**
    * Factory function to create module options
    */
-  useFactory?: (...args: any[]) => Promise<WorkerModuleOptions> | WorkerModuleOptions;
+  useFactory?: (
+    ...args: unknown[]
+  ) => Promise<WorkerModuleOptions> | WorkerModuleOptions;
 
   /**
    * Dependencies to inject into the factory function
    */
-  inject?: any[];
+  inject?: unknown[];
 
   /**
    * Class to use for creating module options
@@ -121,7 +123,7 @@ export interface WorkerModuleAsyncOptions {
   /**
    * Additional imports needed for async configuration
    */
-  imports?: any[];
+  imports?: unknown[];
 }
 
 export interface WorkerOptionsFactory {

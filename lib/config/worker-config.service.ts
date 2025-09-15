@@ -40,7 +40,9 @@ export class WorkerConfigService {
       customWorkerScript: options.customWorkerScript,
     };
 
-    this.validateGlobalOptions(normalized.global!);
+    if (normalized.global) {
+      this.validateGlobalOptions(normalized.global);
+    }
 
     if (normalized.workers) {
       normalized.workers.forEach((config, index) => {
@@ -57,31 +59,31 @@ export class WorkerConfigService {
   private validateGlobalOptions(
     global: NonNullable<WorkerModuleOptions["global"]>
   ): void {
-    if (global.defaultMinInstances! < 0) {
+    if ((global.defaultMinInstances ?? 0) < 0) {
       throw new Error("defaultMinInstances must be >= 0");
     }
 
-    if (global.defaultMaxInstances! < global.defaultMinInstances!) {
+    if ((global.defaultMaxInstances ?? 0) < (global.defaultMinInstances ?? 0)) {
       throw new Error("defaultMaxInstances must be >= defaultMinInstances");
     }
 
-    if (global.defaultTimeout! <= 0) {
+    if ((global.defaultTimeout ?? 0) <= 0) {
       throw new Error("defaultTimeout must be > 0");
     }
 
-    if (global.defaultRestartDelay! < 0) {
+    if ((global.defaultRestartDelay ?? 0) < 0) {
       throw new Error("defaultRestartDelay must be >= 0");
     }
 
-    if (global.defaultMaxRestartAttempts! < 0) {
+    if ((global.defaultMaxRestartAttempts ?? 0) < 0) {
       throw new Error("defaultMaxRestartAttempts must be >= 0");
     }
 
-    if (global.healthCheckInterval! <= 0) {
+    if ((global.healthCheckInterval ?? 0) <= 0) {
       throw new Error("healthCheckInterval must be > 0");
     }
 
-    if (global.workerIdleTimeout! <= 0) {
+    if ((global.workerIdleTimeout ?? 0) <= 0) {
       throw new Error("workerIdleTimeout must be > 0");
     }
   }
@@ -141,7 +143,10 @@ export class WorkerConfigService {
    * Get global configuration
    */
   getGlobalConfig(): NonNullable<WorkerModuleOptions["global"]> {
-    return this.moduleOptions.global!;
+    if (!this.moduleOptions.global) {
+      throw new Error("Global configuration is not available");
+    }
+    return this.moduleOptions.global;
   }
 
   /**
@@ -155,7 +160,7 @@ export class WorkerConfigService {
    * Get effective options for a specific worker class
    */
   getWorkerOptions(
-    workerClass: any,
+    workerClass: unknown,
     baseOptions: WorkerOptions = {}
   ): WorkerOptions {
     const global = this.getGlobalConfig();
