@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.2.0](https://github.com/btwld/nestjs-worker/compare/v1.1.4...v1.2.0) (2025-09-15)
+
+
+### Features
+
+* optimize package size by 36% (32.3kB → 20.5kB) ([ce1d947](https://github.com/btwld/nestjs-worker/commit/ce1d9474408d18b9c37aeea5146e039e549f1a87))
+
 ## [1.1.4](https://github.com/btwld/nestjs-worker/compare/v1.1.3...v1.1.4) (2025-09-15)
 
 
