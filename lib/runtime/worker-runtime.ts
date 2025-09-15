@@ -77,17 +77,10 @@ class WorkerRuntime {
           const result = await strategy();
           if (result) {
             WorkerClass = result;
-            console.log(
-              `Successfully loaded worker class: ${this.workerClassName}`
-            );
             return new WorkerClass();
           }
         } catch (error) {
-          console.log(
-            `Loading strategy failed, trying next: ${
-              error instanceof Error ? error.message : String(error)
-            }`
-          );
+          // Loading strategy failed, trying next
         }
       }
 
@@ -119,7 +112,6 @@ class WorkerRuntime {
 
     for (const workerPath of possiblePaths) {
       if (this.fileExists(workerPath)) {
-        console.log(`Loading worker from user dist: ${workerPath}`);
         const result = await this.loadModuleFromPath(workerPath);
         if (result) return result;
       }
@@ -155,7 +147,6 @@ class WorkerRuntime {
 
     for (const workerPath of standardPaths) {
       if (this.fileExists(workerPath)) {
-        console.log(`Loading worker from standard path: ${workerPath}`);
         const result = await this.loadModuleFromPath(workerPath);
         if (result) return result;
       }
@@ -172,7 +163,6 @@ class WorkerRuntime {
       const moduleName = this.workerClassName
         .toLowerCase()
         .replace(/worker$/, "-worker");
-      console.log(`Attempting to load from node_modules: ${moduleName}`);
       const result = await this.loadModuleFromPath(moduleName);
       return result;
     } catch (_error) {
@@ -212,10 +202,7 @@ class WorkerRuntime {
           return module as new () => unknown;
         }
       } catch (error) {
-        console.log(
-          `Standard import failed for ${filePath}, trying dynamic import:`,
-          error instanceof Error ? error.message : String(error)
-        );
+        // Standard import failed, trying dynamic import
       }
 
       try {
@@ -229,10 +216,7 @@ class WorkerRuntime {
           return module as new () => unknown;
         }
       } catch (error) {
-        console.log(
-          `Dynamic import failed for ${filePath}, trying require:`,
-          error instanceof Error ? error.message : String(error)
-        );
+        // Dynamic import failed, trying require
       }
 
       try {
@@ -243,19 +227,11 @@ class WorkerRuntime {
           return module as new () => unknown;
         }
       } catch (error) {
-        console.log(
-          `Require failed for ${filePath}:`,
-          error instanceof Error ? error.message : String(error)
-        );
+        // Require failed
       }
 
-      console.log(`No valid worker class found in ${filePath}`);
       return null;
     } catch (error) {
-      console.log(
-        `Failed to load module from ${filePath}:`,
-        error instanceof Error ? error.message : String(error)
-      );
       return null;
     }
   }
