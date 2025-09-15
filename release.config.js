@@ -27,13 +27,7 @@ module.exports = {
         tarballDir: "dist",
       },
     ],
-    [
-      "@semantic-release/exec",
-      {
-        publishCmd:
-          'cp package.json package.json.bak && jq \'.name = "@btwld/nestjs-worker" | .publishConfig.registry = "https://npm.pkg.github.com"\' package.json > package.json.tmp && mv package.json.tmp package.json && npm publish && mv package.json.bak package.json',
-      },
-    ],
+
     [
       "@semantic-release/github",
       {
