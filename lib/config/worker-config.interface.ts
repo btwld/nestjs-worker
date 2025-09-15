@@ -1,4 +1,9 @@
-import type { Type } from "@nestjs/common";
+import type {
+  Type,
+  DynamicModule,
+  InjectionToken,
+  OptionalFactoryDependency,
+} from "@nestjs/common";
 
 export interface WorkerModuleOptions {
   /**
@@ -108,7 +113,7 @@ export interface WorkerModuleAsyncOptions {
   /**
    * Dependencies to inject into the factory function
    */
-  inject?: unknown[];
+  inject?: (InjectionToken | OptionalFactoryDependency)[];
 
   /**
    * Class to use for creating module options
@@ -123,7 +128,7 @@ export interface WorkerModuleAsyncOptions {
   /**
    * Additional imports needed for async configuration
    */
-  imports?: unknown[];
+  imports?: (Type<any> | DynamicModule)[];
 }
 
 export interface WorkerOptionsFactory {
