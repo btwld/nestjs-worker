@@ -23,7 +23,8 @@
       "complexity": {
         "noExtraBooleanCast": "error",
         "noUselessCatch": "error",
-        "noUselessTypeConstraint": "error"
+        "noUselessTypeConstraint": "error",
+        "noStaticOnlyClass": "warn"
       },
 
       "style": {
