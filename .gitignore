@@ -166,6 +166,11 @@ temp/
 /workers/screenshots/*
 /workers/downloads/*
 
+# Compiled files in examples (should only contain source)
+examples/**/*.js
+examples/**/*.d.ts
+examples/**/dist/
+
 # Test files and artifacts
 test-results/
 playwright-report/

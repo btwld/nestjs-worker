@@ -360,8 +360,6 @@ This project uses automated semantic releases:
 - **Stable versions**: Merge to `main` branch → `x.x.x` versions
 - **Conventional commits**: Use `feat:`, `fix:`, `feat!:` for automatic versioning
 
-See [RELEASE_WORKFLOW.md](RELEASE_WORKFLOW.md) for detailed release process.
-
 ## 📄 License
 
 This project is licensed under the BSD 3-Clause License - see the LICENSE file for details.
