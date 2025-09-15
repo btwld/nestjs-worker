@@ -9,8 +9,7 @@
   "files": [
     "dist/**/*",
     "README.md",
-    "CHANGELOG.md",
-    "logo.svg"
+    "CHANGELOG.md"
   ],
   "repository": {
     "type": "git",

@@ -8,13 +8,15 @@
     "noLib": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es6",
+    "target": "es2020",
     "sourceMap": false,
     "outDir": "./dist",
     "rootDir": "./lib",
     "skipLibCheck": true,
     "baseUrl": "./",
-    "types": ["jest", "node"]
+    "types": ["jest", "node"],
+    "stripInternal": true,
+    "declarationMap": false
   },
   "include": ["lib"],
   "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]
