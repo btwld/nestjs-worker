@@ -365,9 +365,3 @@ This project uses automated semantic releases:
 ## 📄 License
 
 This project is licensed under the BSD 3-Clause License - see the LICENSE file for details.
-
-## 🆘 Support
-
-- 📖 [Documentation](https://docs.example.com/nestjs-worker)
-- 🐛 [Issue Tracker](https://github.com/btwld/nestjs-worker/issues)
-- 💬 [Discussions](https://github.com/btwld/nestjs-worker/discussions)
