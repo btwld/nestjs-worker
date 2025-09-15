@@ -1,0 +1,22 @@
+{
+  "name": "nestjs-worker-basic-example",
+  "version": "1.0.0",
+  "description": "Basic usage example for NestJS Worker Library",
+  "scripts": {
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "build": "nest build"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.6",
+    "@nestjs/core": "^11.1.6",
+    "@nestjs/platform-express": "^11.1.6",
+    "nestjs-worker": "^0.1.0-dev.1",
+    "reflect-metadata": "^0.1.14",
+    "rxjs": "^7.8.2"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.10",
+    "typescript": "^5.9.2"
+  }
+}

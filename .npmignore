@@ -1,0 +1,70 @@
+# Source files
+lib/
+index.ts
+tsconfig*.json
+
+# Development files
+.vscode/
+.idea/
+*.log
+*.tmp
+.DS_Store
+
+# Test files
+**/*.test.ts
+**/*.spec.ts
+test/
+tests/
+__tests__/
+jest.config.js
+
+# Documentation source
+docs/
+examples/
+
+# Build artifacts
+node_modules/
+coverage/
+.nyc_output/
+*.tsbuildinfo
+
+# Source maps (optional - remove if you want to keep them)
+**/*.js.map
+**/*.d.ts.map
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE files
+*.swp
+*.swo
+*~
+
+# OS files
+Thumbs.db
+
+# Git files
+.git/
+.gitignore
+
+# CI/CD files
+.github/
+.gitlab-ci.yml
+.travis.yml
+.circleci/
+
+# Package manager files
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# Config files
+biome.json
+.gitmessage
+release*.config.js
+RELEASE_WORKFLOW.md
+
+# Documentation source (keep only README.md and CHANGELOG.md)
+docs/
