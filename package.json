@@ -1,6 +1,6 @@
 {
   "name": "nestjs-worker",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A powerful NestJS library for seamless worker_threads integration with decorators and dependency injection",
   "author": "Bitwild <contact@bitwild.com>",
   "license": "BSD-3-Clause",

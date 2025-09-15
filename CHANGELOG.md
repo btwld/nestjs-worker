@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.1](https://github.com/btwld/nestjs-worker/compare/v1.2.0...v1.2.1) (2025-09-15)
+
+
+### Bug Fixes
+
+* correct main and types paths to enable direct imports ([fbbeb20](https://github.com/btwld/nestjs-worker/commit/fbbeb20695c749734732398f5ba6ee4555cc7f7a))
+
 # [1.2.0](https://github.com/btwld/nestjs-worker/compare/v1.1.4...v1.2.0) (2025-09-15)
 
 
