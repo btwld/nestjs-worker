@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2](https://github.com/btwld/nestjs-worker/compare/v1.0.1...v1.0.2) (2025-09-15)
+
+
+### Bug Fixes
+
+* improve type safety in config interfaces ([05a95db](https://github.com/btwld/nestjs-worker/commit/05a95db051822472e445963c72b96062cb51dcef))
+* resolve lint errors in config interfaces and service ([d14e83c](https://github.com/btwld/nestjs-worker/commit/d14e83c66c2d25d99d7fee0c0499cca0133b769e))
+
 ## [1.0.1](https://github.com/btwld/nestjs-worker/compare/v1.0.0...v1.0.1) (2025-09-15)
 
 
