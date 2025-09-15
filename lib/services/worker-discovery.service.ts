@@ -4,15 +4,11 @@ import {
   type OnModuleInit,
   type Type,
 } from "@nestjs/common";
-import type {
-  DiscoveryService,
-  MetadataScanner,
-  Reflector,
-} from "@nestjs/core";
+import { DiscoveryService, MetadataScanner, Reflector } from "@nestjs/core";
 import type { InstanceWrapper } from "@nestjs/core/injector/instance-wrapper";
 import { getWorkerMetadata, isWorker } from "../decorators";
 import type { WorkerMetadata } from "../interfaces/worker.interface";
-import type { WorkerManager } from "../managers/worker-manager";
+import { WorkerManager } from "../managers/worker-manager";
 
 @Injectable()
 export class WorkerDiscoveryService implements OnModuleInit {

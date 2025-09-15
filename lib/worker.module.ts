@@ -60,9 +60,12 @@ export class WorkerModule {
     const workerProviders =
       WorkerProviderFactory.createWorkerProviders(workerClasses);
 
+    // Include the worker classes themselves as providers so they can be discovered
+    const allProviders = [...workerClasses, ...workerProviders];
+
     return {
       module: WorkerModule,
-      providers: workerProviders,
+      providers: allProviders,
       exports: workerProviders,
     };
   }
