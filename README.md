@@ -32,6 +32,8 @@ yarn add nestjs-worker
 pnpm add nestjs-worker
 ```
 
+> **Note**: Requires Node.js >=18.0.0
+
 ## 🎯 Quick Start
 
 ### 1. Define a Worker
