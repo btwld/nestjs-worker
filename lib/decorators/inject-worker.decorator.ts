@@ -5,11 +5,11 @@ import { WORKER_INJECT_TOKEN } from "../constants/worker.constants";
  * Decorator to inject a worker service
  * This creates a proxy that intercepts method calls and routes them to worker threads
  */
-export function InjectWorker<T = any>(
+export function InjectWorker<T = unknown>(
   workerClass: Type<T>
 ): ParameterDecorator {
   return (
-    target: any,
+    target: unknown,
     propertyKey: string | symbol | undefined,
     parameterIndex: number
   ) => {
@@ -36,9 +36,9 @@ export function InjectWorker<T = any>(
  * Get the worker class from inject metadata
  */
 export function getWorkerClassFromInject(
-  target: any,
+  target: unknown,
   propertyKey?: string | symbol
-): Type<any> | undefined {
+): Type<unknown> | undefined {
   return Reflect.getMetadata("workerClass", target, propertyKey || "");
 }
 
@@ -46,7 +46,7 @@ export function getWorkerClassFromInject(
  * Get the worker class token from inject metadata
  */
 export function getWorkerClassToken(
-  target: any,
+  target: unknown,
   propertyKey?: string | symbol
 ): string | undefined {
   return Reflect.getMetadata("workerClassToken", target, propertyKey || "");

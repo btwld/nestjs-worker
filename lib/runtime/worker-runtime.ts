@@ -4,7 +4,7 @@ import { pathToFileURL } from "node:url";
 import { parentPort, workerData } from "node:worker_threads";
 import type { WorkerMessage } from "../interfaces/worker.interface";
 
-let importESMCached: (specifier: string) => Promise<any> | undefined;
+let importESMCached: (specifier: string) => Promise<unknown> | undefined;
 function getImportESM() {
   if (importESMCached === undefined) {
     importESMCached = new Function(
@@ -201,14 +201,15 @@ class WorkerRuntime {
     filePath: string
   ): Promise<(new () => unknown) | null> {
     try {
-      let module: any;
+      let module: unknown;
       try {
         module = await import(filePath);
         if (typeof module !== "function") {
-          module = module[this.workerClassName] || module.default;
+          const moduleRecord = module as Record<string, unknown>;
+          module = moduleRecord[this.workerClassName] || moduleRecord.default;
         }
         if (typeof module === "function") {
-          return module;
+          return module as new () => unknown;
         }
       } catch (error) {
         console.log(
@@ -221,10 +222,11 @@ class WorkerRuntime {
         const importESM = getImportESM();
         module = await importESM(pathToFileURL(filePath).href);
         if (typeof module !== "function") {
-          module = module[this.workerClassName] || module.default;
+          const moduleRecord = module as Record<string, unknown>;
+          module = moduleRecord[this.workerClassName] || moduleRecord.default;
         }
         if (typeof module === "function") {
-          return module;
+          return module as new () => unknown;
         }
       } catch (error) {
         console.log(
@@ -235,9 +237,10 @@ class WorkerRuntime {
 
       try {
         module = require(filePath);
-        module = module[this.workerClassName] || module.default;
+        const moduleRecord = module as Record<string, unknown>;
+        module = moduleRecord[this.workerClassName] || moduleRecord.default;
         if (typeof module === "function") {
-          return module;
+          return module as new () => unknown;
         }
       } catch (error) {
         console.log(

@@ -86,7 +86,7 @@ export class WorkerDiscoveryService implements OnModuleInit {
   private async registerWorkerFromWrapper(
     wrapper: InstanceWrapper
   ): Promise<void> {
-    const workerClass = wrapper.metatype as Type<any>;
+    const workerClass = wrapper.metatype as Type<unknown>;
     const metadata = getWorkerMetadata(workerClass);
 
     if (!metadata) {
@@ -112,7 +112,7 @@ export class WorkerDiscoveryService implements OnModuleInit {
    * Scan a worker class for worker methods
    */
   private async scanWorkerMethods(
-    workerClass: Type<any>,
+    workerClass: Type<unknown>,
     metadata: WorkerMetadata
   ): Promise<void> {
     const prototype = workerClass.prototype;
@@ -168,21 +168,21 @@ export class WorkerDiscoveryService implements OnModuleInit {
   /**
    * Get all discovered worker classes
    */
-  getDiscoveredWorkers(): Type<any>[] {
+  getDiscoveredWorkers(): Type<unknown>[] {
     return this.workerManager.getRegisteredWorkers();
   }
 
   /**
    * Get worker metadata for a specific class
    */
-  getWorkerMetadata(workerClass: Type<any>): WorkerMetadata | null {
+  getWorkerMetadata(workerClass: Type<unknown>): WorkerMetadata | null {
     return this.workerManager.getWorkerMetadata(workerClass);
   }
 
   /**
    * Check if a class is a registered worker
    */
-  isRegisteredWorker(workerClass: Type<any>): boolean {
+  isRegisteredWorker(workerClass: Type<unknown>): boolean {
     return this.workerManager.isWorkerRegistered(workerClass);
   }
 
@@ -190,7 +190,7 @@ export class WorkerDiscoveryService implements OnModuleInit {
    * Manually register a worker (useful for dynamic registration)
    */
   async registerWorker(
-    workerClass: Type<any>,
+    workerClass: Type<unknown>,
     metadata?: WorkerMetadata
   ): Promise<void> {
     const workerMetadata = metadata || getWorkerMetadata(workerClass);

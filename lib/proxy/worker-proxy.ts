@@ -30,17 +30,18 @@ export class WorkerProxy {
     for (const methodName of workerMethods) {
       const methodOptions = metadata.methods.get(methodName);
       if (methodOptions) {
-        (proxy as any)[methodName] = this.createProxyMethod(
+        (proxy as Record<string, unknown>)[methodName] = this.createProxyMethod(
           methodName,
           methodOptions
         );
       }
     }
 
-    (proxy as any).__getWorkerInfo = () =>
+    (proxy as Record<string, unknown>).__getWorkerInfo = () =>
       this.workerManager.getWorkerPoolInfo(this.workerClass);
-    (proxy as any).__getWorkerClass = () => this.workerClass;
-    (proxy as any).__isWorkerProxy = true;
+    (proxy as Record<string, unknown>).__getWorkerClass = () =>
+      this.workerClass;
+    (proxy as Record<string, unknown>).__isWorkerProxy = true;
 
     return proxy;
   }

@@ -1,4 +1,4 @@
-import { Injectable, SetMetadata } from "@nestjs/common";
+import { Injectable, SetMetadata, type Type } from "@nestjs/common";
 import {
   DEFAULT_WORKER_OPTIONS,
   WORKER_METADATA_KEY,
@@ -13,7 +13,7 @@ import type {
  * This decorator automatically makes the class injectable and sets worker metadata
  */
 export function Worker(options: WorkerOptions = {}): ClassDecorator {
-  return (target: any) => {
+  return ((target: new (...args: unknown[]) => unknown) => {
     Injectable()(target);
 
     const workerOptions = { ...DEFAULT_WORKER_OPTIONS, ...options };
@@ -29,7 +29,7 @@ export function Worker(options: WorkerOptions = {}): ClassDecorator {
 
     const metadata: WorkerMetadata = {
       ...existingMetadata,
-      target,
+      target: target as unknown as Type<unknown>,
       options: workerOptions,
     };
 
@@ -38,19 +38,19 @@ export function Worker(options: WorkerOptions = {}): ClassDecorator {
     SetMetadata("isWorker", true)(target);
 
     return target;
-  };
+  }) as ClassDecorator;
 }
 
 /**
  * Get worker metadata from a class
  */
-export function getWorkerMetadata(target: any): WorkerMetadata | undefined {
+export function getWorkerMetadata(target: unknown): WorkerMetadata | undefined {
   return Reflect.getMetadata(WORKER_METADATA_KEY, target);
 }
 
 /**
  * Check if a class is marked as a worker
  */
-export function isWorker(target: any): boolean {
+export function isWorker(target: unknown): boolean {
   return Reflect.getMetadata("isWorker", target) === true;
 }

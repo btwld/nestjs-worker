@@ -1,3 +1,4 @@
+import type { Type } from "@nestjs/common";
 import {
   DEFAULT_WORKER_METHOD_OPTIONS,
   WORKER_METADATA_KEY,
@@ -15,7 +16,7 @@ export function WorkerMethod(
   options: WorkerMethodOptions = {}
 ): MethodDecorator {
   return (
-    target: any,
+    target: unknown,
     propertyKey: string | symbol,
     descriptor: PropertyDescriptor
   ) => {
@@ -28,7 +29,7 @@ export function WorkerMethod(
     );
     if (!metadata) {
       metadata = {
-        target: target.constructor,
+        target: target.constructor as Type<unknown>,
         options: {},
         methods: new Map(),
       };
@@ -53,7 +54,7 @@ export function WorkerMethod(
  * Get worker method metadata
  */
 export function getWorkerMethodMetadata(
-  target: any,
+  target: unknown,
   methodName: string
 ): WorkerMethodOptions | undefined {
   return Reflect.getMetadata(WORKER_METHOD_METADATA_KEY, target, methodName);
@@ -62,14 +63,14 @@ export function getWorkerMethodMetadata(
 /**
  * Check if a method is marked as a worker method
  */
-export function isWorkerMethod(target: any, methodName: string): boolean {
+export function isWorkerMethod(target: unknown, methodName: string): boolean {
   return Reflect.hasMetadata(WORKER_METHOD_METADATA_KEY, target, methodName);
 }
 
 /**
  * Get all worker methods from a class
  */
-export function getWorkerMethods(target: any): string[] {
+export function getWorkerMethods(target: unknown): string[] {
   const metadata: WorkerMetadata = Reflect.getMetadata(
     WORKER_METADATA_KEY,
     target

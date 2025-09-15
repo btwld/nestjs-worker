@@ -208,14 +208,14 @@ export class WorkerConfigService {
    * Get health check interval
    */
   getHealthCheckInterval(): number {
-    return this.getGlobalConfig().healthCheckInterval!;
+    return this.getGlobalConfig().healthCheckInterval ?? 30000;
   }
 
   /**
    * Get worker idle timeout
    */
   getWorkerIdleTimeout(): number {
-    return this.getGlobalConfig().workerIdleTimeout!;
+    return this.getGlobalConfig().workerIdleTimeout ?? 60000;
   }
 
   /**
@@ -231,8 +231,11 @@ export class WorkerConfigService {
   updateGlobalConfig(
     updates: Partial<NonNullable<WorkerModuleOptions["global"]>>
   ): void {
-    Object.assign(this.moduleOptions.global!, updates);
-    this.validateGlobalOptions(this.moduleOptions.global!);
+    if (!this.moduleOptions.global) {
+      throw new Error("Global configuration is not available for update");
+    }
+    Object.assign(this.moduleOptions.global, updates);
+    this.validateGlobalOptions(this.moduleOptions.global);
     this.logger.log("Global worker configuration updated");
   }
 }

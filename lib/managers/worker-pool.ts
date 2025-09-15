@@ -260,7 +260,7 @@ export class WorkerPool {
       }
     }
 
-    throw lastError!;
+    throw lastError ?? new Error("All worker instances failed");
   }
 
   private async waitForAvailableInstance(

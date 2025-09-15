@@ -56,7 +56,7 @@ export class WorkerModule {
   /**
    * Register the worker module for a specific feature with worker classes
    */
-  static forFeature(workerClasses: Type<any>[]): DynamicModule {
+  static forFeature(workerClasses: Type<unknown>[]): DynamicModule {
     const workerProviders =
       WorkerProviderFactory.createWorkerProviders(workerClasses);
 
@@ -107,7 +107,7 @@ export class WorkerModule {
     if (options.useFactory) {
       return {
         provide: WorkerConfigService,
-        useFactory: async (...args: any[]) => {
+        useFactory: async (...args: unknown[]) => {
           const moduleOptions = await options.useFactory?.(...args);
           return new WorkerConfigService(moduleOptions);
         },

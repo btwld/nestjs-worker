@@ -128,7 +128,7 @@ export interface WorkerModuleAsyncOptions {
   /**
    * Additional imports needed for async configuration
    */
-  imports?: (Type<any> | DynamicModule)[];
+  imports?: (Type<unknown> | DynamicModule)[];
 }
 
 export interface WorkerOptionsFactory {
