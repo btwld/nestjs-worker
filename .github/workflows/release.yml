@@ -39,7 +39,7 @@ jobs:
         with:
           node-version: 22
           registry-url: "https://npm.pkg.github.com"
-          scope: "@bitwild"
+          scope: "@btwld"
 
       - name: Install dependencies
         run: pnpm install

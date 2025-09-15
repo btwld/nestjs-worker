@@ -4,7 +4,7 @@
 # nestjs-worker
 
 [![npm version](https://badge.fury.io/js/nestjs-worker.svg)](https://badge.fury.io/js/nestjs-worker)
-[![Test](https://github.com/bitwild/nestjs-worker/workflows/CI/badge.svg)](https://github.com/bitwild/nestjs-worker/actions?query=workflow%3ACI)
+[![Test](https://github.com/btwld/nestjs-worker/workflows/CI/badge.svg)](https://github.com/btwld/nestjs-worker/actions?query=workflow%3ACI)
 [![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 </div>

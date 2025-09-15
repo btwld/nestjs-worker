@@ -14,11 +14,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bitwild/nestjs-worker.git"
+    "url": "https://github.com/btwld/nestjs-worker.git"
   },
-  "homepage": "https://github.com/bitwild/nestjs-worker#readme",
+  "homepage": "https://github.com/btwld/nestjs-worker#readme",
   "bugs": {
-    "url": "https://github.com/bitwild/nestjs-worker/issues"
+    "url": "https://github.com/btwld/nestjs-worker/issues"
   },
   "keywords": [
     "nestjs",
