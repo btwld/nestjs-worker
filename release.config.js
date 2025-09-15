@@ -23,7 +23,7 @@ module.exports = {
     [
       "@semantic-release/npm",
       {
-        npmPublish: true,
+        npmPublish: false,
         tarballDir: "dist",
       },
     ],
