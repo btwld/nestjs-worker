@@ -30,14 +30,14 @@ jobs:
       - name: Setup Node.js for npm
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           cache: "pnpm"
           registry-url: "https://registry.npmjs.org"
 
       - name: Setup Node.js for GitHub Packages
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           registry-url: "https://npm.pkg.github.com"
           scope: "@bitwild"
 

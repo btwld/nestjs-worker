@@ -34,6 +34,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
   "scripts": {
     "build": "pnpm run build:lib",
     "build:lib": "tsc",

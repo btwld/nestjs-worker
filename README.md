@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="logo.svg" alt="NestJS Worker" width="200" height="200">
+  <img src="logo.svg" alt="NestJS Worker" width="300" height="300">
 
 # nestjs-worker
 
