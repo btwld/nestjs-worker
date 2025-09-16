@@ -55,10 +55,6 @@ export class WorkerProxy {
   ) {
     return async (...args: unknown[]) => {
       try {
-        this.logger.debug(
-          `Executing worker method ${this.workerClass.name}.${methodName}`
-        );
-
         const result = await this.workerManager.executeWorkerMethod(
           this.workerClass,
           methodName,
@@ -66,9 +62,6 @@ export class WorkerProxy {
           methodOptions
         );
 
-        this.logger.debug(
-          `Worker method ${this.workerClass.name}.${methodName} completed`
-        );
         return result;
       } catch (error) {
         this.logger.error(

@@ -39,22 +39,8 @@ export class WorkerDiscoveryService implements OnModuleInit {
 
     let discoveredCount = 0;
 
-    this.logger.debug(`Total wrappers found: ${allWrappers.length}`);
-
     for (const wrapper of allWrappers) {
-      if (wrapper.metatype) {
-        this.logger.debug(`Checking wrapper: ${wrapper.metatype.name}`);
-        const hasWorkerMetadata = Reflect.getMetadata(
-          "isWorker",
-          wrapper.metatype
-        );
-        this.logger.debug(
-          `${wrapper.metatype.name} has worker metadata: ${hasWorkerMetadata}`
-        );
-      }
-
       if (this.isWorkerWrapper(wrapper)) {
-        this.logger.debug(`Found worker: ${wrapper.metatype?.name}`);
         await this.registerWorkerFromWrapper(wrapper);
         discoveredCount++;
       }
