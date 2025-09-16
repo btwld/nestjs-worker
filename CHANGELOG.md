@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.4](https://github.com/btwld/nestjs-worker/compare/v1.2.3...v1.2.4) (2025-09-16)
+
+
+### Bug Fixes
+
+* remove all debug logging statements from production code ([bacb9b4](https://github.com/btwld/nestjs-worker/commit/bacb9b45899c116cd0c4256acead528a85fcad02))
+
 ## [1.2.3](https://github.com/btwld/nestjs-worker/compare/v1.2.2...v1.2.3) (2025-09-15)
 
 
