@@ -5,6 +5,8 @@
 
 [![npm version](https://badge.fury.io/js/nestjs-worker.svg)](https://badge.fury.io/js/nestjs-worker)
 [![Test](https://github.com/btwld/nestjs-worker/workflows/CI/badge.svg)](https://github.com/btwld/nestjs-worker/actions?query=workflow%3ACI)
+[![npm downloads](https://img.shields.io/npm/dm/nestjs-worker.svg)](https://www.npmjs.com/package/nestjs-worker)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/btwld/nestjs-worker)
 [![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 </div>
